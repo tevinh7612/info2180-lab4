@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFO2180: Lab 4</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Avengers Character Search</h1>
-        </div>
-    </header>
-    <section class="search-area">
-        <div class="content">
-            <button type='button' id='search-button'>Search</button>
-        </div>
-
-    </section>
-</body>
-
-
-
-
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>INFO2180: Lab 4</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>Avengers Character Search</h1>
+            </div>
+        </header>
+        <section class="search-area">
+            <div class="container">
+                <h5>Search by Full Name or Alias</h5>
+                <form action="#" method="post">
+                    <div class="searchbox">
+                        <input type="text" name="superhero-name" id="superhero-name" placeholder="e.g. Captain America or Steve Rogers">
+                    </div>
+                    <button type='button' id='search-button'>Search</button>
+                </form>
+            </div>
+        </section>
+        <section class="result-area">
+            <div class="container">
+                <h2>RESULT</h2>
+                <div id="result">
+                    <!-----app.js will enter elements here------>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>

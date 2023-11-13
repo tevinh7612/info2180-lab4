@@ -71,8 +71,38 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php
+
+// Retrieve query
+if(isset($_GET['query'])){
+    $searchTerm = $_GET['query'];
+} else{
+    $searchTerm = "";
+}
+
+// Filter and sanitize the search term
+$searchTerm = filter_var($searchTerm, FILTER_SANITIZE_STRING);
+
+if (empty($searchTerm)) {
+    // If the search term is empty, return the original list with only aliases
+    $result = array_column($superheroes, 'alias');
+} else {
+    // Search for the superhero by name or alias
+    $result = [];
+    foreach ($superheroes as $superhero) {
+        if (strcasecmp($superhero['name'], $searchTerm) === 0 || strcasecmp($superhero['alias'], $searchTerm) === 0) {
+            $result[] = [
+                'name' => $superhero['name'],
+                'alias' => $superhero['alias'],
+                'biography' => $superhero['biography'],
+            ];
+            break;
+        }
+    }
+}
+
+// Return the result as JSON
+header('Content-Type: application/json');
+echo json_encode($result);
+
+?>
