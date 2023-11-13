@@ -1,5 +1,11 @@
 <?php
 
+//Added per advice if StackOverFlow. I was getting an error which they advised is not because of the code but browser settings.
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: *');
+
+
 $superheroes = [
   [
       "id" => 1,
